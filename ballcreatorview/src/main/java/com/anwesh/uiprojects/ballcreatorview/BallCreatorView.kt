@@ -173,4 +173,27 @@ class BallCreatorView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BallCreatorView) {
+
+        private val animator : Animator = Animator(view)
+        private val bc : BallCreator = BallCreator(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bc.draw(canvas, paint)
+            animator.animate {
+                bc.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bc.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
