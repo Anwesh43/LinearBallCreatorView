@@ -35,7 +35,7 @@ fun Canvas.drawBallCreator(scale : Float, w : Float, h : Float, paint : Paint) {
     val x1 : Float = (w / 2) * (sf2 + sf4)
     val x2 : Float = (w / 2) * (sf1 + sf3)
     drawLine(x1, h / 2, x2, h / 2, paint)
-    drawCircle(0f, h / 2, r * (sf2 - sf3), paint)
+    drawCircle(w / 2, h / 2, r * (sf2 - sf3), paint)
 }
 
 fun Canvas.drawBCNode(i : Int, scale : Float, paint : Paint) {
