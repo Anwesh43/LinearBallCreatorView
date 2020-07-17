@@ -198,4 +198,13 @@ class BallCreatorView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BallCreatorView {
+            val view : BallCreatorView = BallCreatorView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
